@@ -1,4 +1,6 @@
-Supervised Metric Learning
+Suvrel
 ==========================
+Supervised Variational Relevance Learnging 
 
-This is no ready yet... 
+
+
