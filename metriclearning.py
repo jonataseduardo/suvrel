@@ -31,7 +31,8 @@ def suvrel(X, y, gamma=2, norm=None, distance=False):
             for cl in classes:
                 var_cl[cl] = np.var(X[y == cl], axis=0)
             svar = np.sum(var_cl, axis=0)
-            weights = (gamma - 2.) * svar + 2. * gamma * smeans
+            weights = ((gamma - 2.) * svar 
+                        +  gamma /( n_classes - 1) * smeans)
         else:
             weights = smeans
 
@@ -66,7 +67,8 @@ def suvrel(X, y, gamma=2, norm=None, distance=False):
                     / (n1 + n2 - 2)
             if gamma != 2:
                 svar = np.sum(var_cl, axis=0)
-                weights = (gamma - 2.) * svar + 2 * gamma * smeans
+                weights = ((gamma - 2.) * svar 
+                            +  gamma /( n_classes - 1) * smeans)
             else:
                 weights = smeans
             weights = weights / tnorm
